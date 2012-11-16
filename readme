@@ -1,0 +1,30 @@
+
+Frameworks to include:
+	Validate C32
+	hStore
+	hStore Client
+	popHealth?
+	hQuery?
+	
+
+
+#install org.projecthdata.hdata-schemas with command (in cmd, not powershell):
+mvn install:install
+     or
+mvn install:install-file -DgroupId=org.projecthdata -DartifactId=hdata-schemas -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/hdata-schemas/target/hdata-schemas-1.0-SNAPSHOT.jar -DgeneratePom=true
+
+
+#install org.projecthdata.java-hstore with command (in cmd, not powershell):
+mvn install:install-file -DgroupId=org.projecthdata -DartifactId=java-hstore -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=C:\Projects\IEHR\hData\java-hstore\target\java-hstore-1.0-SNAPSHOT.jar -DgeneratePom=true
+
+
+
+TODO: 
+RootDocumentImpl:
+    test metadata
+    RootDocumentImpl(String recordId) -> look up ccr
+
+Extensions?
+
+
+
