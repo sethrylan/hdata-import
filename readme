@@ -13,18 +13,35 @@ mvn install:install
      or
 mvn install:install-file -DgroupId=org.projecthdata -DartifactId=hdata-schemas -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/hdata-schemas/target/hdata-schemas-1.0-SNAPSHOT.jar -DgeneratePom=true
 
-
 #install org.projecthdata.java-hstore with command (in cmd, not powershell):
 mvn install:install-file -DgroupId=org.projecthdata -DartifactId=java-hstore -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=C:\Projects\IEHR\hData\java-hstore\target\java-hstore-1.0-SNAPSHOT.jar -DgeneratePom=true
+
+#Use local repo with:
+mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/hdata-schemas/target/hdata-schemas-1.0-SNAPSHOT.jar -DgroupId=org.projecthdata -DartifactId=hdata-schemas -Dversion=1.0-SNAPSHOT
+mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/java-hstore/target/java-hstore-1.0-SNAPSHOT.jar -DgroupId=org.projecthdata -DartifactId=java-hstore -Dversion=1.0-SNAPSHOT
 
 
 
 TODO: 
 RootDocumentImpl:
-    test metadata
+    test metadata: \
+        PedigreeInfo (optional)
+        DocumentId (filename hash?)
+        LinkedDocuments (optional)
+        RecordDate (CreatedDateTime and ModfiedDateTime from ccr xml file)
+        Confidentiality
     RootDocumentImpl(String recordId) -> look up ccr
 
-Extensions?
+Extensions:
+    remove or modify Allergies Extensions
+    any extensions in ccr example set?
 
 
 
+
+References:
+http://www.projecthdata.org/documents/pubs/hData%20Record%20Format-v8.pdf
+
+
+mvn jetty:run
+http://localhost:8080/webresources/12345/allergies/doc1
