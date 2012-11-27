@@ -86,6 +86,8 @@ public class XMLValidation {
         } catch (IOException ex) {
             Logger.getLogger(XMLValidation.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        } finally {
+            System.clearProperty("javax.xml.parsers.SAXParserFactory");
         }
     }
     

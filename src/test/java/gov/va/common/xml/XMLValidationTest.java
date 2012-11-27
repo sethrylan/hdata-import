@@ -1,7 +1,7 @@
 package gov.va.common.xml;
 
 import gov.va.common.ClassPathSearcher;
-import gov.va.common.TestClass;
+import gov.va.common.XMLTestClass;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -17,7 +17,7 @@ import org.junit.Test;
  *
  * @author gaineys
  */
-public class XMLValidationTest extends TestClass {
+public class XMLValidationTest extends XMLTestClass {
     
     public XMLValidationTest() {
     }

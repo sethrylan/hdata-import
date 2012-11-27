@@ -1,6 +1,6 @@
 package org.ohd.pophealth.preprocess;
 
-import gov.va.common.TestClass;
+import gov.va.common.XMLTestClass;
 import org.astm.ccr.ContinuityOfCareRecord;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,7 +14,7 @@ import org.junit.Ignore;
  *
  * @author gaineys
  */
-public class PreProcessorTest extends TestClass {
+public class PreProcessorTest extends XMLTestClass {
     
     public PreProcessorTest() {
     }

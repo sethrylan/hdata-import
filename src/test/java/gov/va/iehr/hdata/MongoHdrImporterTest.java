@@ -7,8 +7,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import gov.va.common.ClassPathSearcher;
-import gov.va.common.TestClass;
 import gov.va.common.TestLogger;
+import gov.va.common.XMLTestClass;
 import gov.va.common.mongo.MongoDB;
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +46,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author gaineys
  * @see http://www.edankert.com/validate.html
  */
-public class MongoHdrImporterTest extends TestClass {
+public class MongoHdrImporterTest extends XMLTestClass {
 
     DB testDB;
     

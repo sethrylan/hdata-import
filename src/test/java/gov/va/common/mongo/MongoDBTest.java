@@ -6,7 +6,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import gov.va.common.TestClass;
+import gov.va.common.XMLTestClass;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,7 +20,7 @@ import org.junit.Test;
  *
  * @author gaineys
  */
-public class MongoDBTest extends TestClass {
+public class MongoDBTest extends XMLTestClass {
 
     DB testDB;
     

@@ -46,15 +46,27 @@ import org.xml.sax.SAXException;
 
 /**
  * @author andrew.mccaffrey
+ * @author seth gainey
+ * 
+ * Validates an XML document against the HL7 CDA R2 schema.  This schema has been modified to include additions to the CDA R2 model as defined by HITSP.  See Chapter 4.1 of HITSP/C83 v2.0.
+ * Also validates against schematron rules for HL7 CCD, HITSP specifications, HL7 CDA for Common Document Types For CDA (CDA4CDT) and IHE Patient Care Coordination (PCC).
+ * The original schematrons can be found at http://wiki.hl7.org/index.php?title=Continuity_of_Care_Document_%28CCD%29
+ * 
+ * Schematrons also require a languageCode.xml and voc.xml file in the root project directory.
  */
-public class Validator {
 
-    public static String schemaLocation = getResource("schema/cdar2c32/infrastructure/cda/C32_CDA.xsd").getFile();
-    public static String schematronLocationCcd = getResource("schematron/ccd/ccd.sch").getFile();
-    public static String schematronLocationCda4cdt = getResource("schematron/cda4cdt/HandP.IHE.PCC.sch").getFile();
-    public static String schematronLocationHitspIhe = getResource("schematron/c32_v_2_5_c83_2_0/HITSP_C32.sch").getFile();
-    public static String skeletonLocation = getResource("schematron/schematron-Validator-report.xsl").getFile();
-    public static TransformerFactory factory = null;
+public class Validator {
+    
+    protected static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+    protected static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";    
+    protected static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
+    
+    protected static String schemaLocation = getResource("schema/cdar2c32/infrastructure/cda/C32_CDA.xsd").getFile();
+    protected static String schematronLocationCcd = getResource("schematron/ccd/ccd.sch").getFile();
+    protected static String schematronLocationCda4cdt = getResource("schematron/cda4cdt/HandP.IHE.PCC.sch").getFile();
+    protected static String schematronLocationHitspIhe = getResource("schematron/c32_v_2_5_c83_2_0/HITSP_C32.sch").getFile();
+    protected static String skeletonLocation = getResource("schematron/schematron-Validator-report.xsl").getFile();
+    protected static TransformerFactory factory = null;
     
     
     public static String validate(InputStream xmlInputStream) {
@@ -208,15 +220,15 @@ public class Validator {
     }
 
     protected static Document validateWithSchema(InputStream xml, SchemaValidationErrorHandler handler, String schemaLocation) {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        factory.setValidating(true);
-        factory.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage","http://www.w3.org/2001/XMLSchema");
-        factory.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaSource", schemaLocation);
-        factory.setIgnoringElementContentWhitespace(true);
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        docFactory.setNamespaceAware(true);
+        docFactory.setValidating(true);
+        docFactory.setAttribute(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
+        docFactory.setAttribute(JAXP_SCHEMA_SOURCE, schemaLocation);
+        docFactory.setIgnoringElementContentWhitespace(true);
         DocumentBuilder builder = null;
         try {
-            builder = factory.newDocumentBuilder();
+            builder = docFactory.newDocumentBuilder();
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
             return null;
@@ -310,9 +322,9 @@ public class Validator {
 
     public static Document stringToDom(String xmlSource) throws SAXException, ParserConfigurationException, IOException {
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setIgnoringElementContentWhitespace(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        docFactory.setIgnoringElementContentWhitespace(true);
+        DocumentBuilder builder = docFactory.newDocumentBuilder();
         return builder.parse(new InputSource(new StringReader(xmlSource)));
     }
 
