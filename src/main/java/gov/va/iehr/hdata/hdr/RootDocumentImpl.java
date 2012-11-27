@@ -15,10 +15,8 @@
  */
 package gov.va.iehr.hdata.hdr;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,11 +25,9 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
-import org.projecthdata.javahstore.hdr.DocumentMetadata;
 import org.projecthdata.javahstore.hdr.Extension;
 import org.projecthdata.javahstore.hdr.RootDocument;
 import org.projecthdata.javahstore.hdr.Section;
-import org.projecthdata.javahstore.hdr.SectionDocument;
 
 /**
  * Sample implementation of RootDocument with a single section for allergies

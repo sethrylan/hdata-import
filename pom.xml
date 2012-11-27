@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gov.va.iehr</groupId>
-    <artifactId>vpr</artifactId>
+    <artifactId>vpr_poc</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>vpr</name>
+    <name>vpr_poc</name>
     <url>http://maven.apache.org</url>
 
 
@@ -29,7 +29,7 @@
                 <checksumPolicy>ignore</checksumPolicy>
             </releases>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
             <url>file://${project.basedir}/repo</url>
         </repository>
@@ -43,8 +43,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.0.2</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
       
@@ -108,14 +108,7 @@
             <artifactId>hdata-schemas</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-    
-        <dependency>
-            <groupId>jdom</groupId>
-            <artifactId>jdom</artifactId>
-            <version>1.0</version>
-            <type>jar</type>
-        </dependency>
-        
+            
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>
@@ -139,7 +132,7 @@
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.6.4</version> <!-- test to 1.9.3 -->
+            <version>1.6.4</version> <!-- TODO: test to 1.9.3 -->
             <type>jar</type>
         </dependency>
         
@@ -156,6 +149,81 @@
             <version>2012</version>
             <type>jar</type>
         </dependency>
+
+        <dependency>
+            <groupId>gov.va.iehr</groupId>
+            <artifactId>UTSClient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>           
+        
+        <!-- dependency for lvg -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+                  
+        <!-- it's webscale. -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.3</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+        <!--XMLSerializer needed for net.sf.json-->        
+        <dependency>
+            <groupId>xom</groupId>
+            <artifactId>xom</artifactId>
+            <version>1.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+
+
+
+        <!-- MIF validation -->
+<!--        <dependency>
+            <groupId>org.eclipse.ohf</groupId>
+            <artifactId>InstanceValidator</artifactId>
+            <version>1.2.IHE</version>
+            <type>jar</type>
+        </dependency>-->
+        
+        <!--TODO: test with updated xerces lib-->
+<!--        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.9.1</version>
+            <scope>provided</scope>
+        </dependency>-->
+        
+        <!--Dependencies for gov.nist.mu-->
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>8.7</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>saxon-dom</artifactId>
+            <version>8.7</version>
+            <type>jar</type>
+        </dependency>
+            
         
     </dependencies>
   
