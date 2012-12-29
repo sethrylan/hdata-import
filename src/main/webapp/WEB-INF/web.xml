@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <display-name>vpr</display-name>
+    <display-name>VPR POC</display-name>
     <!--context-root>/vpr</context-root-->
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
 
     <servlet>
         <servlet-name>jersey container</servlet-name>
@@ -28,9 +33,7 @@
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+
 </web-app>
 
 

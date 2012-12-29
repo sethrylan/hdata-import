@@ -36,8 +36,6 @@ public class XMLValidation {
         put(Schema.CDA, "schema/cda.xsd");
         put(Schema.CDA_HL7, "schema/CDA_HL7.xsd");
         put(Schema.CCD_HL7, "schema/CCD_HL7.xsd");
-        
-        
     }};
     
     private static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";

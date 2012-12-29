@@ -18,12 +18,13 @@ import java.util.logging.Logger;
 public class MongoDB {
     
     private static Map<Integer, DB> clientConfigurations = null;
+    private static final String DEFAULT_PROPERTIES = "config/mongo.properties";
 //    protected Mongo mongo;
 //    protected DB db;
     
 
     public static DB getDatabase(){
-        return getDatabase(getProperties("config/mongo.properties"));
+        return getDatabase(getProperties(DEFAULT_PROPERTIES));
     }
     
     public static DB getDatabase(Properties properties) {

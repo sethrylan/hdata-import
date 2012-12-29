@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gov.va.iehr</groupId>
-    <artifactId>vpr_poc</artifactId>
+    <artifactId>hdata-import</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>vpr_poc</name>
+    <name>hdata-import</name>
     <url>http://maven.apache.org</url>
 
 
@@ -39,6 +39,14 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <attachClasses>true</attachClasses>
+                    <classesClassifier>classes</classesClassifier>
+                </configuration>
+            </plugin>            
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.0.2</version>
@@ -50,12 +58,26 @@
       
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
+                <artifactId>jetty-maven-plugin</artifactId> <!-- aka maven-jetty-plugin previous to v7 -->
                 <version>7.2.2.v20101205</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopPort>9966</stopPort>
                     <stopKey>foo</stopKey>
+                    
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>80</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog"> 
+                        <filename>target/request.yyyy_mm_dd.log</filename>
+                        <retainDays>90</retainDays>
+                        <append>true</append>
+                        <extended>false</extended>
+                        <logTimeZone>GMT</logTimeZone>
+                    </requestLog>
                 </configuration>
             </plugin>
       
@@ -152,7 +174,7 @@
 
         <dependency>
             <groupId>gov.va.iehr</groupId>
-            <artifactId>UTSClient</artifactId>
+            <artifactId>uts-client</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency>           

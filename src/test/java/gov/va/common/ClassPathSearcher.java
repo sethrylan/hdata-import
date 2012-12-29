@@ -1,6 +1,5 @@
 package gov.va.common;
 
-import gov.va.iehr.hdata.MongoHdrImporterTest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -82,9 +81,9 @@ public class ClassPathSearcher {
         final ArrayList<String> retval = new ArrayList<String>();
         Enumeration<URL> en = null;
         try {
-            en = MongoHdrImporterTest.class.getClassLoader().getResources(directory);
+            en = ClassPathSearcher.class.getClassLoader().getResources(directory);
         } catch (IOException ex) {
-            Logger.getLogger(MongoHdrImporterTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassPathSearcher.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         if (en.hasMoreElements()) {
@@ -93,7 +92,7 @@ public class ClassPathSearcher {
             try {
                 root = new File(url.toURI());
             } catch (URISyntaxException ex) {
-                Logger.getLogger(MongoHdrImporterTest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ClassPathSearcher.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             File[] files = root.listFiles();

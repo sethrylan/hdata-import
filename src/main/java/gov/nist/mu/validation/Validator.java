@@ -54,19 +54,18 @@ import org.xml.sax.SAXException;
  * 
  * Schematrons also require a languageCode.xml and voc.xml file in the root project directory.
  */
-
 public class Validator {
     
-    protected static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-    protected static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";    
-    protected static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
+    private static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+    private static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";    
+    private static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
     
-    protected static String schemaLocation = getResource("schema/cdar2c32/infrastructure/cda/C32_CDA.xsd").getFile();
-    protected static String schematronLocationCcd = getResource("schematron/ccd/ccd.sch").getFile();
-    protected static String schematronLocationCda4cdt = getResource("schematron/cda4cdt/HandP.IHE.PCC.sch").getFile();
-    protected static String schematronLocationHitspIhe = getResource("schematron/c32_v_2_5_c83_2_0/HITSP_C32.sch").getFile();
-    protected static String skeletonLocation = getResource("schematron/schematron-Validator-report.xsl").getFile();
-    protected static TransformerFactory factory = null;
+    private static String schemaLocation = getResource("schema/cdar2c32/infrastructure/cda/C32_CDA.xsd").getFile();
+    private static String schematronLocationCcd = getResource("schematron/ccd/ccd.sch").getFile();
+    private static String schematronLocationCda4cdt = getResource("schematron/cda4cdt/HandP.IHE.PCC.sch").getFile();
+    private static String schematronLocationHitspIhe = getResource("schematron/c32_v_2_5_c83_2_0/HITSP_C32.sch").getFile();
+    private static String skeletonLocation = getResource("schematron/schematron-Validator-report.xsl").getFile();
+    private static TransformerFactory factory = null;
     
     
     public static String validate(InputStream xmlInputStream) {
@@ -216,6 +215,7 @@ public class Validator {
             Node message = messages[i];
             count += message.getFirstChild().getChildNodes().getLength();
         }
+        
         return count;
     }
 
