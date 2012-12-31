@@ -24,6 +24,9 @@ mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpack
 mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/java-hstore/target/java-hstore-1.0-SNAPSHOT.jar -DgroupId=org.projecthdata -DartifactId=java-hstore -Dversion=1.0-SNAPSHOT
 ```
 
+Install [MongoDB](http://www.mongodb.org/) and edit config/mongo.properties to match local configuration.
+
+
 Run with
 
 ```
