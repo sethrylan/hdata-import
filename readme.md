@@ -24,6 +24,74 @@ mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpack
 mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=C:/Projects/IEHR/hData/java-hstore/target/java-hstore-1.0-SNAPSHOT.jar -DgroupId=org.projecthdata -DartifactId=java-hstore -Dversion=1.0-SNAPSHOT
 ```
 
+Install [LVG2012](http://lexsrv3.nlm.nih.gov/LexSysGroup/Projects/lvg/2012/docs/userDoc/install/mySql.html):
+
+```
+CREATE USER 'lvg'@'localhost' IDENTIFIED BY 'lvg';
+```
+
+NOTE: set root password to something without special characters
+
+Recommended settings of my.ini for a large database
+
+> query_cache_size=100M  
+> query_cache_limit=3M  
+> myisam_sort_buffer_size=200M  
+> bulk_insert_buffer_size=100M  
+> join_buffer_size=100M  
+> key_buffer_size=600M  
+> read_buffer_size=200M  
+> sort_buffer_size=500M  
+
+Disable InnoDB/transaction support.
+
+NOTE: Do not create database lvg2012 as described in online documentation. This step is done automatically by the scripts used later.
+
+EDIT E:\lvg\lvg2012\loadDb\sources\gov\nih\nlm\nls\lvg\loadDb\MySql\db.cfg
+
+> #-------------------
+> #DB_DRIVER = org.gjt.mm.mysql.Driver
+> DB_DRIVER=com.mysql.jdbc.Driver
+> DB_HOST = localhost
+> DB_NAME = lvg2012
+> DB_USERNAME = lvg
+> DB_PASSWORD = lvg
+> #-------------------
+> DBA_USERNAME=root
+> DBA_PASSWORD=MYPASSWORD
+> #-------------------
+> LVG_DIR = LVG_DIR =E:/lvg/lvg2012
+
+EDIT E:\lvg\lvg2012\loadDb\bin\1.SetupMySql_win.bat
+
+> set LVG_DIR=E:\lvg\lvg2012\
+> set JDBC=C:\Users\gaineys.FWT2HS1\Downloads\mysql-connector-java-5.1.22-bin.jar
+
+```
+cd ${LVG_DIR}/loadDb/bin/
+.\1.SetupMySql_win.bat
+```
+
+Build LoadDB project with Ant.
+
+EDIT E:\lvg\lvg2012\loadDb\bin\2.LoadDb_win.bat
+
+> set LVG_DIR=E:\lvg\lvg2012\
+> set JDBC=C:\Users\gaineys.FWT2HS1\Downloads\mysql-connector-java-5.1.22-bin.jar
+
+```
+.\2.LoadDb_win.bat
+```
+
+EDIT E:\lvg\lvg2012\loadDb\bin\3.TestDb_win.bat
+
+> set LVG_DIR=E:\lvg\lvg2012\
+> set JDBC=C:\Users\gaineys.FWT2HS1\Downloads\mysql-connector-java-5.1.22-bin.jar
+
+```
+.\3.TestDb_win.bat
+```
+
 Install [MongoDB](http://www.mongodb.org/) and edit config/mongo.properties to match local configuration.
 
 
