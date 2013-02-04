@@ -1,0 +1,337 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:wc="urn:com.microsoft.wc.methods.response.GetThings3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:h="urn:com.microsoft.wc.thing">
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+	<templateId root="2.16.840.1.113883.10.20.1" />
+	<id root="8195a98b-1214-49ef-ac02-8805f1bdf593" />
+	<code code="34133-9" displayName="Summarization of episode note" codeSystem="2.16.840.1.113883.6.1" />
+	<title>HealthVault Continuity of Care Document</title>
+	<effectiveTime value="20130109150920+0000" />
+	<confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" />
+	<languageCode code="en-US" />
+	<recordTarget>
+		<patientRole>
+			<id root="5f3dc7cd-0132-45ec-ba0e-562dea0dd73d" />
+			<telecom value="mailto:seth.rylan@gmail.com" />
+			<patient>
+				<name>
+					<given qualifier="CL">Seth</given>
+					<family>Gainey</family>
+				</name>
+				<birthTime value="19851017" />
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author>
+		<time value="20130109150920+0000" />
+		<assignedAuthor>
+			<id root="1.3.6.1.4.1.311.68.1" />
+			<assignedAuthoringDevice>
+				<softwareName>Microsoft HealthVault</softwareName>
+			</assignedAuthoringDevice>
+			<representedOrganization>
+				<id root="1.3.6.1.4.1.311.68.1" />
+				<name>Microsoft HealthVault</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id root="1.3.6.1.4.1.311.68.1" />
+				<name>Microsoft HealthVault</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf>
+		<serviceEvent classCode="PCPR">
+			<effectiveTime>
+				<low nullFlavor="UNK" />
+				<high nullFlavor="UNK" />
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<component>
+		<structuredBody>
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.2" />
+					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, adverse reactions, alerts" />
+					<title>Allergies and adverse reactions</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Allergy</th>
+									<th>First Observed</th>
+									<th>Reaction</th>
+									<th>Treatment</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Sesame</td>
+									<td>2012-11-08</td>
+									<td>lack of coordination</td>
+									<td/>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="DRIV">
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27" />
+							<id nullFlavor="UNK" />
+							<code nullFlavor="NA" />
+							<statusCode code="completed" />
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.18" />
+									<code code="ASSERTION" displayName="Assertion" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+									<statusCode code="completed" />
+									<effectiveTime>
+										<low value="20121108" />
+									</effectiveTime>
+									<value xsi:type="CD" displayName="Sesame" />
+									<entryRelationship typeCode="MFST">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.1.54" />
+											<id nullFlavor="UNK" />
+											<code code="ASSERTION" displayName="Assertion" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+											<statusCode code="completed" />
+											<value xsi:type="CD" code="781.3" codeSystemVersion="1" displayName="lack of coordination" codeSystemName="reactions" />
+											<entryRelationship typeCode="REFR">
+												<observation classCode="OBS" moodCode="EVN">
+													<code code="48766-0" displayName="Information source" codeSystem="2.16.840.1.113883.5.14" codeSystemName="LOINC" />
+													<statusCode code="completed" />
+													<value xsi:type="ST">Unknown</value>
+												</observation>
+											</entryRelationship>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+			</component>
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.11" />
+					<code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Problem list" />
+					<title>Problems</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Status</th>
+									<th>Onset Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<content ID="ID0EYB">Alien limb phenomenon</content>
+									</td>
+									<td>
+										<content ID="ID0EEC">Current: Currently has this</content>
+									</td>
+									<td>2012-10-09</td>
+								</tr>
+								<tr>
+									<td>
+										<content ID="ID0EWC">Digitalis species poisoning</content>
+									</td>
+									<td>
+										<content ID="ID0ECD">Intermittent: Comes and goes</content>
+									</td>
+									<td>2012-07-02</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="DRIV">
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27" />
+							<id root="cc37c397-0ea2-42d5-8ca0-8de3850932a9" />
+							<code nullFlavor="NA" />
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.28" />
+									<code code="ASSERTION" displayName="Assertion" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+									<statusCode code="completed" />
+									<effectiveTime>
+										<low value="20121009" />
+										<high nullFlavor="UNK" />
+									</effectiveTime>
+									<value xsi:type="CD" code="62732009" displayName="Alien limb phenomenon" codeSystemName="SnomedConditions_Filtered" />
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.1.50" />
+											<code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="CE" codeSystem="2.16.840.1.113883.1.11.20.13" codeSystemName="SNOMED CT" code="55561003" displayName="active" />
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<code code="48766-0" displayName="Information source" codeSystem="2.16.840.1.113883.5.14" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="ST">Unknown</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+					<entry typeCode="DRIV">
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27" />
+							<id root="9d28a6a6-d83f-451d-b837-256e6879e742" />
+							<code nullFlavor="NA" />
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.28" />
+									<code code="ASSERTION" displayName="Assertion" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+									<statusCode code="completed" />
+									<effectiveTime>
+										<low value="20120702" />
+										<high nullFlavor="UNK" />
+									</effectiveTime>
+									<value xsi:type="CD" code="80471007" displayName="Digitalis species poisoning" codeSystemName="SnomedConditions_Filtered" />
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.1.50" />
+											<code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="CE" codeSystem="2.16.840.1.113883.1.11.20.13" codeSystemName="SNOMED CT" code="7087005" displayName="intermittent" />
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<code code="48766-0" displayName="Information source" codeSystem="2.16.840.1.113883.5.14" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="ST">Unknown</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+			</component>
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.4" />
+					<code code="10157-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of family member diseases" />
+					<title>Family History</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Condition</th>
+									<th>Relationship</th>
+									<th>Relative Name</th>
+									<th>Onset Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Feather picking</td>
+									<td>Grandfather (maternal)</td>
+									<td>Percival Christopher</td>
+									<td />
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="DRIV">
+						<organizer classCode="CLUSTER" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.23" />
+							<statusCode code="completed" />
+							<subject>
+								<relatedSubject classCode="PRS">
+									<code xsi:type="CE" code="GFtM" codeSystemVersion="1" displayName="Grandfather (maternal)" codeSystemName="personal-relationship">
+										<originalText>Grandfather (maternal)</originalText>
+									</code>
+									<subject>
+										<name />
+										<birthTime value="19271111" />
+									</subject>
+								</relatedSubject>
+							</subject>
+							<component>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.22" />
+									<id root="ff4f88d1-c59b-42a9-8c51-b47ac0329bd8" />
+									<code code="ASSERTION" displayName="Assertion" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+									<statusCode code="completed" />
+									<value xsi:type="CD" code="405236005" displayName="Feather picking" codeSystemName="SnomedConditions_Filtered" />
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<code code="48766-0" displayName="Information source" codeSystem="2.16.840.1.113883.5.14" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="ST">Unknown</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.16" />
+					<code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Vital signs" />
+					<title>Vital Signs</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Title</th>
+									<th>Result</th>
+									<th>Flag</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2012-11-28</td>
+									<td>Height</td>
+									<td>1.7779999972974398 m</td>
+									<td />
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="DRIV">
+						<organizer classCode="CLUSTER" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.35" />
+							<id root="0a285c74-3e2f-49e0-b178-c15c8dbc26b4" />
+							<code code="46680005" displayName="Vital signs" codeSystem="2.16.840.1.113883.6.96" codeSystemName="snomed ct" />
+							<statusCode code="completed" />
+							<effectiveTime value="20121128" />
+							<component>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.31" />
+									<id nullFlavor="UNK" />
+									<code code="50373000" codeSystem="2.16.840.1.113883.6.96" displayName="Body height" />
+									<statusCode code="completed" />
+									<effectiveTime value="20121128" />
+									<value xsi:type="PQ" value="1.7779999972974398" unit="m" />
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<code code="48766-0" displayName="Information source" codeSystem="2.16.840.1.113883.5.14" codeSystemName="LOINC" />
+											<statusCode code="completed" />
+											<value xsi:type="ST">Unknown</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

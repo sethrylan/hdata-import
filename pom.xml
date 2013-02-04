@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>hdata-import</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
 
