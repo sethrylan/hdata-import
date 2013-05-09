@@ -104,3 +104,7 @@ Before calling SAXParserFactory.newInstance().
 http://www.projecthdata.org/documents/pubs/hData%20Record%20Format-v8.pdf
 
 
+## License
+
+[sethrylan.mit-license.org](http://sethrylan.mit-license.org/)
+
