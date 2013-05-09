@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
@@ -185,4 +186,37 @@ public class XMLValidation {
     private static URL getResource(String resourceClassPath) {
         return XMLValidation.class.getClassLoader().getResource(resourceClassPath);
     }
+    
+    
+        /**
+     * Validates a document against XSD schemas.
+     * NOTE: Document must be build with namespace awareness and order of the List is significant
+     */
+	private boolean validate(Document document, List<Source> sources) throws Exception {
+    	boolean isXmlValid;
+		
+		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+    	
+		javax.xml.validation.Schema schema = factory.newSchema((Source[])sources.toArray());
+		
+        try {
+    		Validator validator = schema.newValidator();
+    		validator.validate(new DOMSource(document));
+            isXmlValid = true;
+        } catch (SAXException ex) {
+        	ex.printStackTrace();
+            isXmlValid = false;
+        } catch (IOException ex) {
+        	ex.printStackTrace();
+	        isXmlValid = false;
+	    }
+        return isXmlValid;
+	}
+    
+    public static String convertStreamToString(java.io.InputStream is) {
+	    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+	    return s.hasNext() ? s.next() : "";
+	}
+
+
 }
